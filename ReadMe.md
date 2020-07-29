@@ -1,5 +1,6 @@
 # 简介
-尚硅谷SpringCloud2020跟学代码
+尚硅谷SpringCloud2020跟学代码  
+项目地址: https://github.com/carve-myself/SpringCloud2020.git
 
 # 项目结构
 com.carve.springcloud  
