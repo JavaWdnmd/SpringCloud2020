@@ -3,18 +3,15 @@ package com.carve.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-/**
- * Function:
- * ClassName: OrderMain80
- *
- * @author lmb on 2020/7/25 12:31
- */
 @SpringBootApplication
-@EnableEurekaClient
-//@RibbonClient(name = "CLOUD-PAYMENT-SERVICE", configuration = MySelfRule.class)
-public class OrderMain80 {
+@EnableEurekaClient // eureka
+@EnableFeignClients // feign
+public class OrderFeignMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(OrderMain80.class, args);
+        SpringApplication.run(OrderFeignMain80.class, args);
     }
 }
+ 
+ 

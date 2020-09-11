@@ -6,15 +6,14 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * Function:
- * ClassName: OrderMain80
+ * ClassName: GatewayMain9527
  *
- * @author lmb on 2020/7/25 12:31
+ * @author carve on 2020/9/11 20:58
  */
 @SpringBootApplication
 @EnableEurekaClient
-//@RibbonClient(name = "CLOUD-PAYMENT-SERVICE", configuration = MySelfRule.class)
-public class OrderMain80 {
+public class GatewayMain9527 {
     public static void main(String[] args) {
-        SpringApplication.run(OrderMain80.class, args);
+        SpringApplication.run(GatewayMain9527.class, args);
     }
 }

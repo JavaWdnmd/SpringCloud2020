@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Function:
@@ -21,7 +22,6 @@ import java.util.List;
  */
 @RestController
 @Slf4j
-@RequestMapping("/payment")
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;
@@ -32,7 +32,7 @@ public class PaymentController {
     @Resource
     private DiscoveryClient discoveryClient;
 
-    @PostMapping("/create")
+    @PostMapping("/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         if (result > 0) {
@@ -42,8 +42,8 @@ public class PaymentController {
         }
     }
 
-    @GetMapping("/get/{id}")
-    public CommonResult get(@PathVariable Long id) {
+    @GetMapping("/payment/get/{id}")
+    public CommonResult get(@PathVariable("id") Long id) {
         Payment payment = paymentService.getById(id);
         if (null != payment) {
             return new CommonResult(200, "查询成功,serverPort:" + serverPort, payment);
@@ -52,7 +52,7 @@ public class PaymentController {
         }
     }
 
-    @GetMapping("/discovery")
+    @GetMapping("/payment/discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();
         for (String service : services) {
@@ -63,5 +63,20 @@ public class PaymentController {
             log.info(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
+    @GetMapping("/payment/feign/timeout")
+    public String paymentFeignTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
     }
 }
