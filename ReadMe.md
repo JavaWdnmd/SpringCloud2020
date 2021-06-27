@@ -5,10 +5,33 @@
 # 项目结构
 com.carve.springcloud  
     ├─ cloud-api-common                         通用模块  
-    ├─ cloud-provider-payment8001               支付提供者服务    
-    ├─ cloud-consumer-order80                   订单消费者服务  
+    ├  
+    ├  02 基础模块  
+    ├─ cloud-provider-payment8001               普通-支付提供者服务8001    
+    ├─ cloud-consumer-order80                   普通-订单消费者服务80  
+    ├  
+    ├  03 Eureka的服务注册与发现  
     ├─ cloud-eureka-server7001                  Eureka注册中心7001  
-    ├─ cloud-eureka-server7002                  Eureka注册中心7002  
+    ├─ cloud-eureka-server7002                  Eureka注册中心7002   
+    ├  
+    ├  05笔记    
+    ├─ cloud-providerconsul-payment8006         consul服务提供者8006  
+    ├─ cloud-consumerconsul-order80             consul服务消费者80  
+    ├  
+    ├  07笔记   
+    ├─ cloud-consumer-order80                   Ribbon  
+    ├   
+    ├  08笔记    
+    ├─ cloud-consumer-feign-order80             OpenFeign服务调用80  
+    ├  
+    ├  10笔记  
+    ├─ cloud-provider-hystrix-payment8001       hystrix服务提供者8001  
+    ├─ cloud-consumer-feign-hystrix-order80     hystrix服务消费者80  
+    ├  
+    ├  12笔记  
+    ├─ cloud-consumer-hystrix-dashboard9001     hystrix服务监控Dashboard  
+    ├  
+    ├  
     └
 
 # 官网文档传送门
